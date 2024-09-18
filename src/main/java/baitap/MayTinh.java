@@ -6,6 +6,7 @@ package baitap;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -40,6 +41,7 @@ public class MayTinh extends JFrame{
     private void createGUI() {
         txtDis = new JTextField();
         txtDis.setPreferredSize(new Dimension(165, 28));
+        txtDis.setFont(new Font("Arial",Font.PLAIN,24));
         btnReset = new JButton("C");
 
         JPanel p1 = new JPanel();
@@ -79,7 +81,7 @@ public class MayTinh extends JFrame{
                             phepTinh = "";
                             phepToanMoi = true;
                         }
-                    } else { // Các phép toán khác (+, -, *, /)
+                    } else { 
                         if (!phepTinh.isEmpty() && !txtDis.getText().isEmpty()) {
                             calculate(Double.parseDouble(txtDis.getText()));
                         } else {
@@ -117,7 +119,7 @@ public class MayTinh extends JFrame{
                 break;
             case "/":
                 if (number == 0) {
-                    txtDis.setText("Lỗi"); // Xử lý lỗi chia cho 0
+                    txtDis.setText("Lỗi"); 
                     phepTinh = "";
                     phepToanMoi = true;
                     return;
